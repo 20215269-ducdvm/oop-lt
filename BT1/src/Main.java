@@ -43,13 +43,14 @@ public class Main {
         for (Player player : players) {
             int score = 0;
             System.out.println(player.getName() + "'s turn.");
-            RandomOrder randomOrder = new RandomOrder();
+            RandomOrder randomOrder = new RandomOrder(4);
+            randomOrder.shuffle();
             ArrayList<Integer> numbers = randomOrder.getNumbers();
             for (int number : numbers) {
-                Dice dice = dices[number];
+                Dice dice = dices[number - 1];
                 rollingDice(player);
                 int value = dice.roll();
-                System.out.println("Dice " + (number + 1) + " rolled: " + value + "\n");
+                System.out.println("Dice " + number + " rolled: " + value + "\n");
                 score += value;
             }
             System.out.println(player.getName() + "'s score: " + score + "\n");
@@ -75,10 +76,13 @@ public class Main {
                 break;
             }
             System.out.println("Round " + round + " ends!\n");
+            printScore();
+            showEmotion();
             System.out.println("Start another round? (y/n)");
             Scanner scanner = new Scanner(System.in);
             String answer = scanner.nextLine();
             if (answer.equals("n")) {
+                System.out.println("Game over! Thanks for playing!");
                 break;
             }
         }
@@ -99,6 +103,7 @@ public class Main {
         }
     }
     static void printScore() {
+        System.out.println("Final score:");
         for (Player player : players) {
             System.out.println(player.getName() + ": " + player.getScore());
         }
@@ -107,7 +112,5 @@ public class Main {
         initDice();
         initPlayers();
         playGame();
-        showEmotion();
-        printScore();
     }
 }

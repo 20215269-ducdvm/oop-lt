@@ -10,16 +10,15 @@ public class Dice {
         this.probability = probability;
         random = new Random();
     }
+
     public int roll() {
         double p = random.nextDouble();
         if (p < probability) {
             return value;
         } else {
-            int result;
-            do {
-                result = random.nextInt(6) + 1;
-            } while (result == value);
-            return result;
+            RandomOrder randomOrder = new RandomOrder(6);
+            randomOrder.removeNumber(value);
+            return randomOrder.getNumbers().get(random.nextInt(5));
         }
     }
 }
