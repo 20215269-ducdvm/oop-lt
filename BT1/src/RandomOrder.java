@@ -10,7 +10,7 @@ public class RandomOrder {
         }
     }
     public void removeNumber(int number) {
-        numbers.remove(number);
+        numbers.remove(Integer.valueOf(number));
     }
     public void shuffle() {
         Collections.shuffle(numbers);

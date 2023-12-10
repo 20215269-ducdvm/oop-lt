@@ -27,7 +27,7 @@ public class Main {
     static void rollingDice(Player player) {
         System.out.println("Rolling dice...");
         if (player.getIsHuman()) {
-            System.out.print("(Press any key to continue)");
+            System.out.print("(Press Enter to continue)");
             Scanner scanner = new Scanner(System.in);
             scanner.nextLine();
         } else {
