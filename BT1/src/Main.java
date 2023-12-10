@@ -42,9 +42,11 @@ public class Main {
     static void playRound() {
         for (Player player : players) {
             int score = 0;
+
             System.out.println(player.getName() + "'s turn.");
             RandomOrder randomOrder = new RandomOrder(4);
             randomOrder.shuffle();
+
             ArrayList<Integer> numbers = randomOrder.getNumbers();
             for (int number : numbers) {
                 Dice dice = dices[number - 1];
@@ -53,6 +55,7 @@ public class Main {
                 System.out.println("Dice " + number + " rolled: " + value + "\n");
                 score += value;
             }
+
             System.out.println(player.getName() + "'s score: " + score + "\n");
             if (score == 21) {
                 player.setScore(21);
@@ -72,12 +75,15 @@ public class Main {
             round++;
             System.out.println("Round " + round + " starts!\n");
             playRound();
+
             if (isGameOver) {
                 break;
             }
+
             System.out.println("Round " + round + " ends!\n");
             printScore();
             showEmotion();
+
             System.out.println("Start another round? (y/n)");
             Scanner scanner = new Scanner(System.in);
             String answer = scanner.nextLine();
