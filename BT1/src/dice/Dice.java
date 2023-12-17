@@ -1,5 +1,7 @@
-import java.util.Random;
+package dice;
 
+import java.util.Random;
+import random.Order;
 public class Dice {
     private int value;
     private double probability;
@@ -16,7 +18,7 @@ public class Dice {
         if (p < probability) {
             return value;
         } else {
-            RandomOrder randomOrder = new RandomOrder(6);
+            Order randomOrder = new Order(6);
             randomOrder.removeNumber(value);
             return randomOrder.getNumbers().get(random.nextInt(5));
         }

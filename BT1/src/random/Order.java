@@ -1,10 +1,12 @@
+package random;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class RandomOrder {
+public class Order {
     private ArrayList<Integer> numbers = new ArrayList<>();
-    public RandomOrder(int maxNumber) {
+    public Order(int maxNumber) {
         for (int i = 1; i <= maxNumber; i++) {
             numbers.add(i);
         }
